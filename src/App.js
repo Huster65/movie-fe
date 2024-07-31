@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Landing from './components/layout/Landing';
+import Auth from './views/Auth';
 import './App.css';
+import AuthContextProvider from './contexts/AuthContext';
+import Dashboard from './views/Dashboard';
+import PostContextProvider from './contexts/PostContext';
+import MoviesLists from './views/MoviesLists';
+import MovieAdd from './views/MovieAdd';
+import MovieEdit from './views/MovieEdit';
+import Detail from './views/MovieDetail';
+import ManageUser from './views/ManageUser';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContextProvider>
+      <PostContextProvider>
+        <Router>
+          <Routes>
+            <Route path='/' element={<Landing />} />
+            <Route path='/login' element={<Auth authRoute='login' />} />
+            <Route path='/register' element={<Auth authRoute='register' />} />
+            <Route path='/dashboard' element={<Dashboard/>} />
+            <Route path='/movies/list' element={<MoviesLists/>} />
+            <Route path='/movies/add' element={<MovieAdd/>} />
+            <Route path='/movies/edit/:id' element={<MovieEdit/>} />
+            <Route path='/movies/detail/:id' element={<Detail/>} />
+            <Route path='/user/manage' element={<ManageUser/>} />
+          </Routes>
+        </Router>
+      </PostContextProvider>
+    </AuthContextProvider>
   );
 }
 
