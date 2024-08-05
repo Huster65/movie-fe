@@ -1,12 +1,11 @@
-import axios from "axios";
+import { useEffect, useState } from "react";
 import NavbarMenu from "../components/layout/NavbarMenu";
-import { PostContext } from "../contexts/PostContext";
-import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import MovieCard from "../components/card/Card";
 import Footer from "../components/layout/Footer";
 
-function Dashboard() {
-    
+function NewMovies() {
+
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -24,23 +23,26 @@ function Dashboard() {
     }
 
     return (  
-        <div>
-            <NavbarMenu />
-            <div className="dashboard">
+        <>
+        <NavbarMenu />
+        <div className="dashboard">
                 <div className="titleCard">
-                    PHIM HAY
+                    PHIM MỚI
                 </div>
                 <div className="movieCardContainer">
-                    {data.map((post, index) => (
-                        <MovieCard key={index} name={post.name} img={post.image} price={post.price} id={post._id} />
-                    ))}
+                {data
+                    .filter(post => post.type === 'newmovie')
+                    .map((post, index) => (
+                    <MovieCard key={index} name={post.name} img={post.image} price={post.price} id={post._id} />
+                ))}
                 </div>
-            </div>
-            <div>
-                <Footer />
-            </div>
+
         </div>
+        <div>
+            <Footer />
+        </div>
+        </>
     );
 }
 
-export default Dashboard;
+export default NewMovies;

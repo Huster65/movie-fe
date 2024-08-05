@@ -137,8 +137,8 @@ button.post-button.btn:active {
 
 .dashboard{
 	background-color: rgb(12 3 3 / 93%);
-	height: 100vh;
 	width: 100%;
+	padding-bottom: 20px;
 }
 
 .nav-com {
@@ -146,9 +146,17 @@ button.post-button.btn:active {
 	color: #f0f8ffc7;
 	font-weight: 400;
 	font-family: roboto;
+	white-space: nowrap;
 }
 .nav-com:hover {
 	color: #ff9601
+}
+
+.nav-link {
+	color: #fff;
+}
+.nav-link:hover{
+	color: #ff9601;
 }
 
 .ml-120{
@@ -212,3 +220,44 @@ button.post-button.btn:active {
 .ml-10{
 	margin-left: 20px ;
 }
+
+.navbar .nav-dropdown .dropdown-toggle::after {
+	display: none;
+  }
+.navbar .nav-dropdown .dropdown-menu {
+	background-color: #333; /* Màu nền tối */
+	display: flex;
+	justify-content: space-between;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.2s, opacity 0.2s ease-in-out;
+  }
+  .navbar .nav-dropdown:hover .dropdown-menu {
+	visibility: visible;
+	opacity: 1;
+  }
+.navbar .nav-dropdown .dropdown-menu .dropdown-item {
+	color: white; /* Màu chữ trắng */
+	font-size: 14px; /* Kích thước chữ nhỏ */
+  }
+  
+.navbar .nav-dropdown .dropdown-menu .dropdown-item:hover {
+	background-color: #575757; /* Màu nền khi hover */
+  }
+
+.hover-yellow:hover{
+	color: #ff9601;
+}
+
+.UserManagerContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px; /* Chiều cao toàn màn hình */
+  }
+  
+.UserManager {
+	text-align: center;
+	font-weight: bold;
+}
+  

@@ -22,20 +22,29 @@ function ManageUser() {
         }
     }
 
-    const handleEdit = async () => {
-
+    const handleEdit = async (id) => {
+        try {
+            navigate(`/user/edit/${id}`)
+        } catch (error) {
+            console.log('error edit user');
+        }
     }
 
-    const handleDelete = async () => {
-
+    const handleDelete = async (id) => {
+        try {
+            await axios.get(`http://localhost:3000/user/delete/${id}`)
+            navigate('/dashboard')
+        } catch (error) {
+            console.log('error delete user');
+        }
     }
 
 
     return (  
         <>
             <NavbarMenu />
-            <div className="d-flex justify-content-end mb-3">  
-                <Link to="/movies/add" className="btn btn-primary add-btn-movie">Thêm User</Link>
+            <div className="UserManagerContainer">
+                <div className="UserManager">Quản lý người dùng</div>
             </div>
             <Table striped bordered hover>
                 <thead>

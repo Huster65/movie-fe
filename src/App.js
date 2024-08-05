@@ -11,6 +11,11 @@ import MovieAdd from './views/MovieAdd';
 import MovieEdit from './views/MovieEdit';
 import Detail from './views/MovieDetail';
 import ManageUser from './views/ManageUser';
+import EditUser from './views/EditUser';
+import UserBank from './views/UserBank';
+import OddMovies from './views/OddMovies';
+import NewMovies from './views/NewMovies';
+import SeriesMovies from './views/SeriesMovies';
 
 function App() {
   return (
@@ -24,9 +29,14 @@ function App() {
             <Route path='/dashboard' element={<Dashboard/>} />
             <Route path='/movies/list' element={<MoviesLists/>} />
             <Route path='/movies/add' element={<MovieAdd/>} />
+            <Route path='/movies/newmovies' element={<NewMovies/>} />
+            <Route path='/movies/oddmovies' element={<OddMovies/>} />
+            <Route path='/movies/seriesmovies' element={<SeriesMovies/>} />
             <Route path='/movies/edit/:id' element={<MovieEdit/>} />
             <Route path='/movies/detail/:id' element={<Detail/>} />
             <Route path='/user/manage' element={<ManageUser/>} />
+            <Route path='/user/edit/:id' element={<EditUser/>} />
+            <Route path='/user/bank' element={<UserBank/>} />
           </Routes>
         </Router>
       </PostContextProvider>

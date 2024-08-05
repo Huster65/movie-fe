@@ -10,7 +10,9 @@ function AddMovie() {
     const [movieData, setMovieData] = useState({
         name: '',
         image: '',
-        price: ''
+        price: '',
+        videoId: '',
+        type: '',
     });
 
     const handleChange = (e) => {
@@ -70,6 +72,29 @@ function AddMovie() {
                         placeholder="Nhập giá phim" 
                         name="price" 
                         value={movieData.price} 
+                        onChange={handleChange} 
+                    />
+
+                </Form.Group>
+                
+                <Form.Group className="mb-3" controlId="formMoviePrice">
+                    <Form.Label>Video Id</Form.Label>
+                    <Form.Control 
+                        type="text" 
+                        placeholder="Nhập videoId" 
+                        name="videoId" 
+                        value={movieData.videoId} 
+                        onChange={handleChange} 
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formMoviePrice">
+                    <Form.Label>Type</Form.Label>
+                    <Form.Control 
+                        type="text" 
+                        placeholder="Nhập Type" 
+                        name="type" 
+                        value={movieData.type} 
                         onChange={handleChange} 
                     />
                 </Form.Group>

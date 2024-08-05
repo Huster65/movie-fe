@@ -15,6 +15,7 @@ function MovieEdit() {
         description: '',
         videoId: '',
         slug: '',
+        type: ''
     });
 
     const handleChange = (e) => {
@@ -106,6 +107,17 @@ function MovieEdit() {
                         placeholder="Nhập description" 
                         name="description" 
                         value={movieData.description} 
+                        onChange={handleChange} 
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formMoviePrice">
+                    <Form.Label>Type</Form.Label>
+                    <Form.Control 
+                        type="text" 
+                        placeholder="Nhập Type" 
+                        name="type" 
+                        value={movieData.type} 
                         onChange={handleChange} 
                     />
                 </Form.Group>
