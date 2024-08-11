@@ -260,4 +260,18 @@ button.post-button.btn:active {
 	text-align: center;
 	font-weight: bold;
 }
-  
+.text-over-flow-movie {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	font-size: 16px;
+  }
+  .text-over-flow-type {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	font-size: 14px;
+	color: #B68928;
+  }

@@ -13,9 +13,9 @@ import Detail from './views/MovieDetail';
 import ManageUser from './views/ManageUser';
 import EditUser from './views/EditUser';
 import UserBank from './views/UserBank';
-import OddMovies from './views/OddMovies';
-import NewMovies from './views/NewMovies';
-import SeriesMovies from './views/SeriesMovies';
+import MovieType from './views/MovieType';
+import MovieSearch from './views/MovieSeach'
+import MovieCategory from './views/MovieCategory'
 
 function App() {
   return (
@@ -29,14 +29,14 @@ function App() {
             <Route path='/dashboard' element={<Dashboard/>} />
             <Route path='/movies/list' element={<MoviesLists/>} />
             <Route path='/movies/add' element={<MovieAdd/>} />
-            <Route path='/movies/newmovies' element={<NewMovies/>} />
-            <Route path='/movies/oddmovies' element={<OddMovies/>} />
-            <Route path='/movies/seriesmovies' element={<SeriesMovies/>} />
+            <Route path='/movieType' element={<MovieType/>} />
             <Route path='/movies/edit/:id' element={<MovieEdit/>} />
             <Route path='/movies/detail/:id' element={<Detail/>} />
             <Route path='/user/manage' element={<ManageUser/>} />
             <Route path='/user/edit/:id' element={<EditUser/>} />
             <Route path='/user/bank' element={<UserBank/>} />
+            <Route path='/movies' element={<MovieSearch/>} />
+            <Route path='/category' element={<MovieCategory/>} />
           </Routes>
         </Router>
       </PostContextProvider>

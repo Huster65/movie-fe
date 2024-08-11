@@ -3,18 +3,25 @@ import NavbarMenu from "../components/layout/NavbarMenu";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'; // Nhập Link từ react-router-dom
-
+import useFiltersHandler from "../hook/useFiltersHandler";
+import Pagination from "../components/layout/Pagination"
 function MoviesLists() {
+    const { filters, handleChangePage } = useFiltersHandler({ page: 1, page_size: 10 });
     const navigate = useNavigate();
     const [data, setData] = useState([]);
 
     useEffect(() => {
         getPosts(); 
-    }, []);
+    }, [filters]);
 
     const getPosts = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/movies/posts');
+            const response = await axios.get('http://localhost:3000/movies/posts',{
+                params: {
+                    page: filters.page,
+                    size: filters.page_size
+                }
+            });
             setData(response.data.posts);
         } catch (error) {
             console.log('error get post', error);
@@ -41,9 +48,14 @@ function MoviesLists() {
     return (
         <>
             <NavbarMenu />
-            <div className="d-flex justify-content-end mb-3"> {/* Sử dụng d-flex và justify-content-end để căn chỉnh nút */}
+            <div className="UserManagerContainer" style={{ marginTop: 50 }}>
+                <div className="UserManager" style={{ fontSize: 40 }}>Danh sách phim</div>
+            </div>
+            <div className="d-flex justify-content-end mb-3" style={{ marginRight: 50 }}> {/* Sử dụng d-flex và justify-content-end để căn chỉnh nút */}
                 <Link to="/movies/add" className="btn btn-primary add-btn-movie">Thêm Phim</Link>
             </div>
+            <div style={{ width: '100%',height: 'auto',display: 'flex', justifyContent: 'center'}}>
+                <div style={{ width: '90%'}}>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -67,6 +79,9 @@ function MoviesLists() {
                     ))}
                 </tbody>
             </Table>
+                </div>
+            </div>
+            <Pagination totalPage={10} currentPage={1} handleChangePage={handleChangePage} admin={true} />
         </>
     );
 }
