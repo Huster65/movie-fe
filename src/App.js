@@ -16,6 +16,7 @@ import UserBank from './views/UserBank';
 import MovieType from './views/MovieType';
 import MovieSearch from './views/MovieSeach'
 import MovieCategory from './views/MovieCategory'
+import DetailMovie from './views/DetailMovie'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path='/movieType' element={<MovieType/>} />
             <Route path='/movies/edit/:id' element={<MovieEdit/>} />
             <Route path='/movies/detail/:id' element={<Detail/>} />
+            <Route path='/detail/movie/:id' element={<DetailMovie/>} />
             <Route path='/user/manage' element={<ManageUser/>} />
             <Route path='/user/edit/:id' element={<EditUser/>} />
             <Route path='/user/bank' element={<UserBank/>} />

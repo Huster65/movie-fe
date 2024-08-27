@@ -14,22 +14,7 @@ function MovieCard({name, img, price, id, index}) {
   const [idUser, setIdUser] = useState('')
   const navigate = useNavigate()
   const handleWatching = async () => {
-    try {        
-        if(user.price >= 0 && user.price >= price){          
-          const priceUpdate = user.price - price
-          setUser({
-            ...user,
-            price: priceUpdate
-          })
-          
-          await axios.put(`http://localhost:3000/user/${idUser}`,{price: priceUpdate})
-          navigate(`/movies/detail/${id}`)
-      }
-    } catch (error) {
-      console.log('error handle watching');
-      
-    }
-    
+          navigate(`/detail/movie/${id}`)
   }
 
   useEffect(() => {

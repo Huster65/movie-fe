@@ -3,7 +3,7 @@ import NavbarMenu from "../components/layout/NavbarMenu";
 
 function UserBank() {
     const accountNumber = '1234567890';
-  const accountName = 'Hoang Minh Nhat';
+  const accountName = 'Nguyễn Đoàn'
   const qrCodeImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg'; // URL của ảnh QR code của bạn
 
   return (

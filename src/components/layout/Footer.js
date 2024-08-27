@@ -13,7 +13,7 @@ const Footer = () => {
           <Col md={4}>
             <h5>Liên Hệ</h5>
             <ul className="list-unstyled">
-              <li>Email: hoangminhnhat2k2@gmail.com </li>
+              <li>Email: nguyendoan@gmail.com </li>
               <li>Điện thoại: 0984660074 </li>
             </ul>
           </Col>

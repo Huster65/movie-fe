@@ -3,10 +3,16 @@ import NavbarMenu from "../components/layout/NavbarMenu";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "../components/layout/Footer";
-
+import Button from 'react-bootstrap/Button';
+import ReviewPopup from '../components/Rating'
+import {jwtDecode} from 'jwt-decode';
 function Detail() {
     const { id } = useParams();
-
+    const [open, setOpen] = useState(false);
+    const [username, setUsername] = useState('');
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    
     const [movieData, setMovieData] = useState({
         name: '',
         image: '',
@@ -35,9 +41,13 @@ function Detail() {
     }
 
     useEffect(() => {
+        const token = localStorage.getItem('userToken');
+    if (token) {
+        const decodedToken = jwtDecode(token);
+        setUsername(decodedToken.username);
+    }
         getMovie()
     }, [])
-
     return (
         <>
             <NavbarMenu />
@@ -53,7 +63,8 @@ function Detail() {
                         allowFullScreen
                     ></iframe>
                 </div>
-                <div style={{ width: '560px', fontSize: '14px', textAlign: 'left', color: '#fff' }}>
+                <Button className='btn-card' style={{ marginRight: 50, marginTop: 20 }} onClick={handleOpen}>Bình luận</Button>
+                <div style={{ width: '560px', fontSize: '14px', textAlign: 'left', color: '#fff', marginTop: 30 }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                         <div style={{ flex: '0 0 50%', padding: '10px' }}>
                             <p><strong>Đang phát:</strong> <span style={{ color: 'red' }}>HD Vietsub</span></p>
@@ -70,8 +81,9 @@ function Detail() {
                     </div>
                 </div>
             </div>
+            <ReviewPopup open={open} handleClose={handleClose} name={username} movieId={id} />
             <Footer />
-            
+             
         </>
     );
 }

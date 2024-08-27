@@ -36,7 +36,7 @@ function NavbarMenu() {
         <Navbar.Brand href="/dashboard">
             <img src='https://phimmoichillv.net/dev/images/logo.png' className='img-logo'></img>
         </Navbar.Brand>
-        <Nav.Link href="movies" className='nav-com nav-link' style={{color: '#f0f8ffc7'}} >Phim Mới</Nav.Link>
+        <Nav.Link href="/movies" className='nav-com nav-link' style={{color: '#f0f8ffc7'}} >Phim Mới</Nav.Link>
         <Nav.Link href={`/movieType?type=${encodeURIComponent("Phim lẻ")}`} className='nav-com nav-link' style={{color: '#f0f8ffc7'}} >Phim Lẻ</Nav.Link>
         <Nav.Link href={`/movieType?type=${encodeURIComponent("Phim bộ")}`} className='nav-com nav-link' style={{color: '#f0f8ffc7'}} >Phim Bộ</Nav.Link>
         <NavDropdown title="Thể Loại" id="the-loai-dropdown" className="nav-com nav-dropdown">
@@ -84,9 +84,6 @@ function NavbarMenu() {
           <Nav className="me-auto" >
             <Nav.Link href="#link">{price}đ</Nav.Link>
             <NavDropdown title={username} id="basic-nav-dropdown" style={{ marginRight: 50 }}>
-              <NavDropdown.Item href="#action/3.1">
-                Thông tin cá nhân
-              </NavDropdown.Item>
               {isAdmin && (
                 <NavDropdown.Item href="/movies/list">
                 Danh sách phim
