@@ -63,7 +63,7 @@ function Detail() {
                         allowFullScreen
                     ></iframe>
                 </div>
-                <Button className='btn-card' style={{ marginRight: 50, marginTop: 20 }} onClick={handleOpen}>Bình luận</Button>
+                <Button className='btn-card' style={{ marginRight: 50, marginTop: 20 }} onClick={handleOpen}>Đánh giá</Button>
                 <div style={{ width: '560px', fontSize: '14px', textAlign: 'left', color: '#fff', marginTop: 30 }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                         <div style={{ flex: '0 0 50%', padding: '10px' }}>
